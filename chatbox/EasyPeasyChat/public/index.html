@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>⋆★⋆ EMOJI CHATROOM ⋆★⋆</title>
+
+  <style>
+input {
+    display: inline;
+}
+
+</style>
+</head>
+<body>
+
+
+<!--
+	Username input. 
+	Submitting name executes setClientName function,
+	emitting the 'setClientName' message to the server over sockets.
+-->
+
+
+<div style="margin:300px;">
+<form action="javascript:setClientName();"  id="alias">
+	<h3 style="color:#4286f4;
+	font-family:;"> 
+	⋆★⋆★⋆ WELCOME TO EMOJI CHATROOM! ⋆★⋆★⋆</h3>
+	<h4> PLEASE CHOOSE YOUR USERNAME</h4>
+	<br>
+	Username: 
+	<input type="text" name="Nickname" value="e.g.: ( ͡° ͜ʖ ͡°)">
+	<br>
+	<input type="submit" value="Submit">
+</form>
+ </div>
+
+
+<!-- Chatroom          -->
+
+
+<div id="chatroom" style="
+			height: 500px;
+			display: none; 	
+			background-color: #b0fce4;
+			margin: 100px;
+			position: relative;"  >
+	<div style="padding:10px; height: 400px; overflow-y: scroll" id=chatbox>You have entered the chatroom</div>
+	<div style=" width:100%; position:absolute; bottom:0;"> 
+		<form action="javascript:clientMessage();" id="inputMessage">
+			<input style="
+				margin: 10px;
+                bottom: 0; 
+                width: 90%; 
+                font-size: 30px;
+                padding:5px;" type="text" name="messageContent" value="Start typing..." >
+           	<input type="submit" value="Submit">
+
+		</form>
+	</div>
+</div>
+
+<!-- Username input                -->
+<h1>ASCIImoji jQuery plugin test</h1>
+  <input class="js-test" type="text" placeholder="try some emoticons here" />
+  <br>
+  <textarea class="js-test" rows="8" cols="40" placeholder="or here"></textarea>
+
+<script src="jquery.min.js"></script>
+  <script src="../dist/asciimoji.js"></script>
+  <script src="../dist/jquery/asciimoji.jquery.js"></script>
+  <script>
+    $(function() {
+      $('.js-test').asciimoji();
+    });
+ </script>
+
+
+<script src = "/socket.io/socket.io.js"></script>
+<script src = "/main.js"></script>
+
+
+
+</body>
+</html>
